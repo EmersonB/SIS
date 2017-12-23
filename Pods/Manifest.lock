@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.5.1)
+  - Cards (1.3.0):
+    - Player
+  - ExpandableTableViewController (2.1)
+  - Player (0.8.4)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - Cards
+  - ExpandableTableViewController
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Cards: 40bd9052b7ffca2ff621ed282fe596c474af80c8
+  ExpandableTableViewController: 7a97b8cf60f044b588255a01176cafa5ce2b7438
+  Player: e45514e9e5fb8ff18f50eb2ba6f84dac9b6a0024
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: 9314a41f4c8a5f236a3497da623575e89fead083
+
+COCOAPODS: 1.2.0
