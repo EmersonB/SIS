@@ -9,21 +9,32 @@
 import UIKit
 import Cards
 
-var cards = 0
 class CardViewController: UIViewController {
-    
+    var cards = 0
     @IBOutlet var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        
+        spinner.startAnimating()
+        //spinner.alpha = 0.0
+        spinner.color = UIColor.black
+        
+        spinner.center = CGPoint(x: self.view.bounds.size.width/2, y: self.view.bounds.size.height/2)
+        
+        view.addSubview(spinner)
         
         get(url: "/grades/", completionHandler: { data in
-//            print(data)
+            print(data)
             //String : AnyObject
             for item in data["courses"] as! NSArray {
                 if let course = item as? [String: AnyObject]{
                     self.addCard(course: course)
                 }
             }
+            
+            spinner.stopAnimating()
         })
     }
 
@@ -36,11 +47,13 @@ class CardViewController: UIViewController {
         // Aspect Ratio of 5:6 is preferred
         let card = CardHighlight(frame: CGRect(x: 10, y: 30 + 270 * cards, width: Int(self.view.frame.width - 20) , height: 240))
         
-        card.backgroundColor = UIColor(red: 0, green: 94/255, blue: 112/255, alpha: 1)
-        card.icon = UIImage(named: "flappy")
+        let grades = course["grades"] as! [String: [String: String]]
+        
+        card.backgroundColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
         card.title = course["name"] as! String
         card.itemTitle = course["teacher"] as! String
         card.itemSubtitle = "Period \(String(describing: course["period"]!))"
+        card.buttonText = Array(grades.values)[0]["percentage"] as! String
         card.textColor = UIColor.white
         
         card.hasParallax = true

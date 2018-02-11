@@ -68,6 +68,12 @@ import UIKit
     /**
      Text for the card's button.
      */
+    @IBInspectable public var isVisible: Bool = true {
+        didSet{
+            self.hideButton()
+        }
+    }
+    
     @IBInspectable public var buttonText: String = "view" {
         didSet{
             self.setNeedsDisplay()
@@ -214,6 +220,12 @@ import UIKit
             })
         }
         delegate?.cardHighlightDidTapButton?(card: self, button: actionBtn)
+    }
+    
+    func hideButton(){
+        if isVisible == false{
+            self.actionBtn.isHidden = true
+        }
     }
 }
 

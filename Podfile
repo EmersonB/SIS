@@ -9,7 +9,9 @@ target 'GradeBook' do
   pod 'SwiftyJSON'
   pod 'Alamofire', '~> 4.4'
   pod 'Cards'
-  pod "ExpandableTableViewController"
+  pod 'Eureka'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
   target 'GradeBookTests' do
     inherit! :search_paths
